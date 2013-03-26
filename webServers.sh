@@ -9,10 +9,11 @@ apt-get install -y php5 php5-common php5-curl php-pear php5-dev php5-mysql php5-
 sed -e 's/80/8000/' /etc/apache2/ports.conf > /etc/apache2/ports.conf.tmp && mv  /etc/apache2/ports.conf.tmp /etc/apache2/ports.conf
 sed -e 's/Listen 8000/Listen 127.0.0.1:8000/' /etc/apache2/ports.conf > /etc/apache2/ports.conf.tmp && mv  /etc/apache2/ports.conf.tmp /etc/apache2/ports.conf
 
+#copy and link configs
 mkdir /var/www/autohost/
-cp autoHost.loc /etc/apache2/sites-available/
-
-cp apacheProxy.loc /etc/nginx/sites-available/
+cp apache2-configs/autoHost.loc /etc/apache2/sites-available/
+cp nginx-configs/apacheProxy.loc /etc/nginx/sites-available/
+cp -r nginx-configs/includes /etc/nginx/
 rm /etc/nginx/sites-enabled/*
 ln -s /etc/nginx/sites-available/apacheProxy.loc /etc/nginx/sites-enabled/apacheProxy.loc
 
