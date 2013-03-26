@@ -4,6 +4,10 @@ sed -e 's/#listen-address=/listen-address=127.0.0.1/' /etc/dnsmasq.conf > /etc/d
 
 #this is used for auto subdomains
 echo 'address=/dev/127.0.0.1' >> /etc/dnsmasq.conf 
+echo 'address=/master1/127.0.0.1' >> /etc/dnsmasq.conf 
+echo 'address=/master2/127.0.0.1' >> /etc/dnsmasq.conf 
+echo 'address=/slave1/127.0.0.1' >> /etc/dnsmasq.conf 
+echo 'address=/slave2/127.0.0.1' >> /etc/dnsmasq.conf 
 
 export no_proxy=dev,*.dev,$no_proxy
 
