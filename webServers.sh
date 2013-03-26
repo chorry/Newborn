@@ -24,6 +24,8 @@ a2ensite autoHost.loc
 
 
 #nginx stuff
+mkdir /var/www/nginx-proxy-cache
+mkdir /var/www/nginx-fastcgi-cache
 mkdir /var/www/nginx-proxy-cache/common-cache
 mkdir /var/www/nginx-proxy-cache/temp
 mkdir /var/www/nginx-fastcgi-cache/temp
