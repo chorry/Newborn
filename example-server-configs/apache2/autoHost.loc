@@ -1,0 +1,19 @@
+#Thanks to Thomas Spigel and his post @ http://inchoo.net/ecommerce/magento/how-to-setup-semiautomatic-per-folder-wildcard-subdomains-on-your-local-linux-based-development-computer/
+<VirtualHost *:8000>
+ServerAdmin webmaster@localhost
+ServerName auto.dev
+ServerAlias *.auto.dev
+# This will be the wildcarded document root. Any folder you create in /var/www/test will be automatically a subdomain name.
+VirtualDocumentRoot /var/www/autohost/%-3
+
+# For symlinking your projects and htaccesses to work
+<Directory />
+Options FollowSymLinks
+AllowOverride All
+</Directory>
+
+ErrorLog /var/log/apache2/vhosts-error.log
+# Possible values include: debug, info, notice, warn, error, crit, alert, emerg.
+LogLevel warn
+CustomLog /var/log/apache2/vhosts-access.log combined
+</VirtualHost>
