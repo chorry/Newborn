@@ -49,3 +49,8 @@ cp -r example-sites-www/* /var/www/
 #fpm stuff
 sed -e 's/listen = \/var\/run\/php5-fpm.sock/\;listen = \/var\/run\/php5-fpm.sock\nlisten=127.0.0.1:9000/' /etc/php5/fpm/pool.d/www.conf > /etc/php5/fpm/pool.d/www.conf.bak && mv /etc/php5/fpm/pool.d/www.conf.bak /etc/php5/fpm/pool.d/www.conf
 service php5-fpm restart
+
+#increase file limits for nginx workers
+echo "* soft nofile 200000" >> /etc/security/limits.conf
+echo "* hard nofile 200000" >> /etc/security/limits.conf
+ulimit -n 200000
